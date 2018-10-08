@@ -13,7 +13,6 @@ public class EnemyManager : MonoBehaviour
         InvokeRepeating ("Spawn", spawnTime, spawnTime);
     }
 
-
     void Spawn ()
     {
         if(playerHealth.currentHealth <= 0f)
