@@ -7,19 +7,9 @@ public class EnemyManager : MonoBehaviour
     public float spawnTime = 3f;
     public Transform[] spawnPoints;
     float timer = 0f;
-    void FixedUpdate() {
-        timer += Time.fixedDeltaTime;
-
-        if(timer >= spawnTime){
-            Spawn();
-            timer = 0f;
-        }
-
-        if(ScoreManager.score % 100 == 0) {
-            spawnTime -= 2.5f; 
-        }
+    void Start() {
+        InvokeRepeating("Spawn", spawnTime, spawnTime);    
     }
-
     void Spawn ()
     {
         if(playerHealth.currentHealth <= 0f)
